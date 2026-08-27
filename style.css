@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #e63946;
+    --dark-red: #a4161a;
+    --wine: #5c0712;
+    --black: #090909;
+    --card: rgba(24, 24, 24, 0.82);
+    --white: #fff;
+    --gray: #bdbdbd;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #3d0a12 0%, #100307 38%, #050505 75%);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* FUNDO */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.background span {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(230, 57, 70, 0.15);
+    font-size: 25px;
+    animation: subir 12s linear infinite;
+}
+
+.background span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.background span:nth-child(2) {
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.background span:nth-child(3) {
+    left: 55%;
+    animation-delay: 6s;
+}
+
+.background span:nth-child(4) {
+    left: 75%;
+    animation-delay: 2s;
+}
+
+.background span:nth-child(5) {
+    left: 90%;
+    animation-delay: 8s;
+}
+
+@keyframes subir {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.4) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+
+/* CONTEÚDO */
+
+main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.badge {
+    padding: 8px 16px;
+    border: 1px solid rgba(230, 57, 70, 0.5);
+    border-radius: 50px;
+
+    color: #ff9ca3;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+
+    background: rgba(230, 57, 70, 0.07);
+}
+
+.hero h1 {
+    font-family: "Caveat", cursive;
+    font-size: clamp(70px, 18vw, 150px);
+    line-height: 0.9;
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 20px rgba(230, 57, 70, 0.3);
+}
+
+.hero h1 span {
+    color: var(--red);
+}
+
+.subtitle {
+    max-width: 500px;
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+/* BOTÃO */
+
+.music-button {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, #e63946, #9d0d18);
+
+    color: white;
+    padding: 14px 24px;
+
+    border-radius: 50px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.25);
+
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.4);
+}
+
+.music-button:active {
+    transform: scale(0.96);
+}
+
+
+/* CARTÃO */
+
+.card {
+    position: relative;
+
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 28px;
+
+    padding: 40px 30px;
+    margin-bottom: 80px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+    width: 150px;
+    height: 150px;
+
+    background: var(--red);
+
+    filter: blur(100px);
+    opacity: 0.12;
+
+    top: -50px;
+    right: -50px;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(230,57,70,0.12);
+
+    border-radius: 50%;
+
+    color: var(--red);
+
+    margin-bottom: 20px;
+}
+
+.card h2,
+.counter-section h2,
+.memories h2 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: #c7c7c7;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    margin-bottom: 17px;
+}
+
+.card .signature {
+    color: #ff6671;
+
+    font-family: "Caveat", cursive;
+    font-size: 27px;
+
+    margin-top: 25px;
+}
+
+
+/* CONTADOR */
+
+.counter-section {
+    text-align: center;
+    padding: 20px 0 80px;
+}
+
+.small-title {
+    color: #ff6671;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.counter-section h2 {
+    font-family: "Caveat", cursive;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.counter {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    max-width: 600px;
+    margin: auto;
+}
+
+.time-box {
+    padding: 20px 10px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+}
+
+.time-box strong {
+    display: block;
+
+    font-size: 27px;
+
+    color: #fff;
+}
+
+.time-box span {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.counter-message {
+    color: #888;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+
+/* MEMÓRIAS */
+
+.memories {
+    padding-bottom: 80px;
+}
+
+.memories h2 {
+    font-family: "Caveat", cursive;
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.section-description {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.photo {
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #171717;
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+}
+
+.photo span {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 25px 10px 10px;
+
+    font-size: 10px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.8)
+    );
+}
+
+
+/* FINAL */
+
+.final {
+    text-align: center;
+
+    padding: 60px 20px 80px;
+}
+
+.heart-big {
+    color: var(--red);
+
+    font-size: 55px;
+
+    animation: pulsar 1.5s infinite;
+
+    margin-bottom: 15px;
+}
+
+@keyframes pulsar {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.final h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 45px;
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+.final h2 span {
+    color: var(--red);
+}
+
+.final p {
+    color: #999;
+    font-size: 13px;
+}
+
+.line {
+    width: 50px;
+    height: 2px;
+
+    background: var(--red);
+
+    margin: 25px auto;
+}
+
+.final small {
+    color: #555;
+    font-size: 10px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 15px;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+
+    .hero h1 {
+        font-size: 90px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    .card {
+        padding: 30px 22px;
+        border-radius: 22px;
+        margin-bottom: 60px;
+    }
+
+    .card h2 {
+        font-size: 24px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    .counter-section h2,
+    .memories h2 {
+        font-size: 38px;
+    }
+
+    .counter {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .time-box {
+        padding: 17px 8px;
+    }
+
+    .time-box strong {
+        font-size: 23px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery .photo:last-child {
+        grid-column: span 2;
+        aspect-ratio: 2 / 1;
+    }
+
+    .final h2 {
+        font-size: 39px;
+    }
+}
