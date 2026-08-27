@@ -86,35 +86,19 @@ setInterval(atualizarContador, 1000);
    ========================================= */
 
 const musica = document.getElementById("musica");
-
 const musicButton = document.getElementById("musicButton");
 
-
-musicButton.addEventListener("click", () => {
-
-    if (!musica.src) {
-
-        alert(
-            "Primeiro coloque o arquivo da música como 'musica.mp3' na pasta do site."
-        );
-
-        return;
+musicButton.addEventListener("click", async () => {
+    try {
+        if (musica.paused) {
+            await musica.play();
+            musicButton.textContent = "⏸️ Pausar música";
+        } else {
+            musica.pause();
+            musicButton.textContent = "🎵 Tocar música";
+        }
+    } catch (erro) {
+        console.error("Erro ao tocar música:", erro);
+        alert("Não consegui tocar a música. Confira se o arquivo musica.mp3 está na pasta do site.");
     }
-
-
-    if (musica.paused) {
-
-        musica.play();
-
-        musicButton.innerHTML =
-            "⏸️ Pausar música";
-
-    } else {
-
-        musica.pause();
-
-        musicButton.innerHTML =
-            "🎵 Tocar nossa música";
-    }
-
 });
